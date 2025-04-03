@@ -9,7 +9,7 @@ interface CardGamesItemProps {
 
 export default function CardGames({ games }: CardGamesItemProps) {
     return (
-        <div className="max-w-md mx-auto p-6 bg-black-900 text-white rounded-lg border-2 border-purple-500 shadow-lg text-center">
+        <div className="max-w-md mx-auto p-6 bg-gray-900 dark:bg-black text-white rounded-lg border-2 border-purple-500 shadow-lg text-center">
             <div className="flex justify-between items-center">
                 <Trash2 />
             </div>

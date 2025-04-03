@@ -26,7 +26,7 @@ const initialState = {
 };
 
 export default function Form() {
-    const [state, formAction, pending] = useActionState(createGame, initialState);
+    const [state, formAction, pending] = useActionState(createGame, initialState)
 
     return (
         <>
@@ -40,42 +40,52 @@ export default function Form() {
                             <Input 
                                 name="name" 
                                 placeholder="Nome do jogo" 
+                                aria-invalid={!!state?.errors.name} 
+                                defaultValue={state?.values.name}
                             
                             />
-                            <span className="text-sm text-destructive"></span>
+                            <span className="text-sm text-destructive">{state?.errors.name}</span>
                         </div>
 
                         <div>
                             <Input 
                                 name="achievement" 
-                                placeholder="Suas conquistas" 
+                                placeholder="Suas conquistas"
+                                aria-invalid={!!state?.errors.achievement} 
+                                defaultValue={state?.values.achievement}
                                 
                             />
-                            <span className="text-sm text-destructive"></span>
+                            <span className="text-sm text-destructive">{state?.errors.achievement}</span>
                         </div>
 
                         <div>
                             <Input 
                                 name="totalAchievements" 
-                                placeholder="Conquistas totais" 
+                                placeholder="Conquistas totais"
+                                aria-invalid={!!state?.errors.totalAchievements} 
+                                defaultValue={state?.values.totalAchievements}
                             
                             />
-                            <span className="text-sm text-destructive"></span>
+                            <span className="text-sm text-destructive">{state?.errors.totalAchievements} </span>
                         </div>
 
                         <div>
                             <Input 
                                 name="hours" 
-                                placeholder="Horas jogadas" 
+                                placeholder="Horas jogadas"
+                                aria-invalid={!!state?.errors.hours} 
+                                defaultValue={state?.values.hours}
                             
                             />
-                            <span className="text-sm text-destructive"></span>
+                            <span className="text-sm text-destructive">{state?.errors.hours}</span>
                         </div>
 
                         <div>
                             <select 
                                 name="platform" 
                                 className="w-full p-2 bg-gray-800 rounded border border-purple-700" 
+                                aria-invalid={!!state?.errors.platform} 
+                                defaultValue={state?.values.platform}
                                
                             >
                                 <option value="">Selecione a plataforma</option>
@@ -85,7 +95,7 @@ export default function Form() {
                                 <option value="Epic Games">Epic Games</option>
                                 <option value="Nintendo Switch">Nintendo Switch</option>
                             </select>
-                            <span className="text-sm text-destructive"></span>
+                            <span className="text-sm text-destructive">{state?.errors.platform} </span>
                         </div>
 
                         <div className="flex justify-between">
@@ -97,7 +107,7 @@ export default function Form() {
                             </Button>
 
                             <Button>
-                                <Check />
+                                <Check/>
                                 Salvar
                             </Button>
                         </div>
@@ -105,5 +115,6 @@ export default function Form() {
                 </div>
             </main>
         </>
-    );
+    )
+    
 }
