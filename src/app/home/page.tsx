@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import NavBar from "@/components/nav-bar";
 import { Button } from "@/components/ui/button";
 import { Link, Plus } from "lucide-react";
+import Form from "./form/page";
 
 export default async function Home() {
     const data: Games[] = await getGames()
@@ -22,12 +23,7 @@ export default async function Home() {
                     </div>
                     <div className="max-w-md p-6 bg-black-900 text-white rounded-lg shadow-lg flex-1 rounded border border-purple-700">
                         <h2 className="text-2xl font-bold text-purple-400 mb-4">CADASTRAR JOGOS</h2>
-                        <Button asChild>
-                            <Link href="/games/form">
-                                <Plus /> Novo Jogo
-                            </Link>
-                        </Button>
-
+                        <Form/>
                         {data.length === 0 ? (
                             <p>Nenhum jogo cadastrado</p>
                         ) : (
